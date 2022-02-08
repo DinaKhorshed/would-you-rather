@@ -9,6 +9,7 @@ import LoadingBar from "react-redux-loading";
 import Login from "./Login";
 import LeaderBoard from "./LeaderBoard";
 import NewQuestion from "./NewQuestion";
+import NotFound from "./NotFound";
 
 class App extends Component {
   componentDidMount() {
@@ -20,10 +21,11 @@ class App extends Component {
     return loggedInUser ? (
       <div>
         <Routes>
+          <Route path='/404' element={<NotFound />} />
           <Route path="" exact element={<Home />} />
-          <Route path="/question/:QuestionID" element={<Question />} />
-          <Route path="/new-question" element={<NewQuestion />} />
-          <Route path="/leader-board" element={<LeaderBoard />} />
+          <Route path="/questions/:QuestionID" element={<Question />} />
+          <Route path="/add" element={<NewQuestion />} />
+          <Route path="/leaderboard" element={<LeaderBoard />} />
         </Routes>
       </div>
     ) : (

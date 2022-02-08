@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 function Leader(props) {
   const leader = props.users[props.id];
+  console.log(props);
   const { avatarImage, name, answers, questions } = leader;
 
   function getRank() {

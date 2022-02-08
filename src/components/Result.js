@@ -16,7 +16,7 @@ function Result (props) {
           Would you rather { text }?
           <progress id='bar' max="1" value={getPercentage()}/>
           <div className='vote-count'>
-            {votes.length} out of {totalVotes} votes
+            {votes.length} out of {totalVotes} votes ({getPercentage() * 100} %)
 
         </div>
       </div>

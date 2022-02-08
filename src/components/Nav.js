@@ -28,12 +28,12 @@ function Nav(props) {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/new-question" activeclassname="active">
+          <NavLink to="/add" activeclassname="active">
             New Question
           </NavLink>
         </li>
         <li>
-          <NavLink to="/leader-board" activeclassname="active">
+          <NavLink to="/leaderboard" activeclassname="active">
             Leader Board
           </NavLink>
         </li>

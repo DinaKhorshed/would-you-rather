@@ -29,7 +29,7 @@ class Hidden extends Component {
             <div className="question-text">
               ...{optionOne.text.slice(0, 15)}...
             </div>
-            <Link to={`/question/${QuestionID}`}>
+            <Link to={`/questions/${QuestionID}`}>
               <button className="view-poll-button">View Poll</button>
             </Link>
           </div>
