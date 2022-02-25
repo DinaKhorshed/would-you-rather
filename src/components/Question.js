@@ -5,12 +5,13 @@ import Answered from "./Answered";
 
 function Question(props) {
   const { QuestionID } = useParams();
+  const { loggedInUser } = props;
   const question = props.questions[QuestionID];
   if (question) {
     const { optionOne, optionTwo } = question;
     const answered =
-      optionOne.votes.includes(props.loggedInUser) ||
-      optionTwo.votes.includes(props.loggedInUser);
+      optionOne.votes.includes(loggedInUser) ||
+      optionTwo.votes.includes(loggedInUser);
 
     return <div>{answered ? <Answered /> : <Unanswered />}</div>;
   } else {

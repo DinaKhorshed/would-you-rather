@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import { handleAnswerQuestion } from "../actions/questions";
+import { handleSaveQuestionAnswer } from "../actions/users";
 
 function Unanswered(props) {
-  const { loggedInUser, users } = props;
+  const { loggedInUser, users, handleSaveQuestionAnswer } = props;
   const { QuestionID } = useParams();
   const question = props.questions[QuestionID];
 
@@ -19,13 +19,7 @@ function Unanswered(props) {
       console.error("You must answer the question to submit.");
       return;
     }
-    props.dispatch(
-      handleAnswerQuestion({
-        loggedInUser,
-        QuestionID,
-        answer,
-      })
-    );
+    handleSaveQuestionAnswer(loggedInUser, question.id, answer);
   }
 
   return (
@@ -80,5 +74,6 @@ function mapStateToProps({ loggedInUser, questions, users }) {
     users,
   };
 }
-
-export default connect(mapStateToProps)(Unanswered);
+export default connect(mapStateToProps, { handleSaveQuestionAnswer })(
+  Unanswered
+);
